@@ -3,11 +3,11 @@ import {ExcelComponent} from '@core/ExcelComponent'
 export class Toolbar extends ExcelComponent {
   static className = 'toolbar-excel'
 
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
       name: 'Toolbar',
-      listeners: ['click']
-    });
+      ...options
+    })
   }
   toHTML() {
     return `
@@ -30,9 +30,5 @@ export class Toolbar extends ExcelComponent {
             <span class="material-icons">format_underlined</span>
         </a>
     `
-  }
-
-  onClick(event) {
-    console.log(event.target)
   }
 }
